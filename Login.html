@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My Project</title>
+</head>
+<body>
+    <main
+  class="w-full h-screen flex flex-col items-center justify-center px-4 bg-black"
+>
+  <div class="max-w-sm w-full text-gray-600 space-y-5">
+    <div class="text-center pb-8">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKTUdtqVlY7wwMWbVxlQWBF8X142mp3hINQg&s" width="79" class="mx-auto" />
+      <div class="mt-1">
+        <h4 class="text-gray-100 text-2xl font-bold sm:text-3xl">
+          Login
+        </h4>
+        <h2>To your acoount</h2>
+      </div>
+    </div>
+    <!-- <form onSubmit="event.preventDefault()" class="space-y-5"> -->
+    <div>
+        <form id="loginForm">
+        <label class="font-medium"> Email </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Masukkan email"
+          required
+          class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+        />
+      </div>
+      <div>
+        <label class="font-medium"> Password </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Masukkan password"
+          required
+          class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+        />
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <div class="flex items-center gap-x-3">
+          <input
+            type="checkbox"
+            id="remember-me-checkbox"
+            class="checkbox-item peer hidden"
+          />
+          <label
+            for="remember-me-checkbox"
+            class="relative flex w-5 h-5 bg-gray-100 peer-checked:bg-indigo-600 rounded-md border ring-offset-2 ring-indigo-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
+          ></label>
+          <span>Remember me</span>
+        </div>
+        <a
+          href="https://wa.me/621232886579?text=Silahkan Hubungi Di WA Kami"
+          class="text-center text-indigo-600 hover:text-indigo-500"
+          >Forgot password?</a
+        >
+      </div>
+      <button
+        class="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"
+        type="submit"
+        id="loginButton"
+        >
+        Sign in
+      </button>
+    </form>
+    <!-- p -->
+    <!-- </form> -->
+    <button
+    class="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100"
+    >
+    <!-- SVG for Google Sign In -->
+    <img
+    src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
+    alt="Google"
+    class="w-5 h-5"
+    />
+    <a href="https://accounts.google.com/login?hl=in">
+      <!-- Comment: Google Icon SVG here -->
+      Continue with Google</a>
+    </button>
+    <p class="text-center">
+      Don't have an account?
+      <a
+        href="javascript:void(0)"
+        class="font-medium text-indigo-600 hover:text-indigo-500"
+        >Sign up</a
+      >
+    </p>
+  </div>
+  <script>
+    // Variabel email dan password yang benar
+    const validEmail = "123@gmail.com";
+    const validPassword = "123";
+
+    // Batasan maksimal kesalahan login
+    const maxAttempts = 3;
+    let attempts = 0;
+    let lockTime = 0;
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah form submit secara default
+
+        // Mendapatkan input email dan password
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Menampilkan pesan error dan sukses
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        errorMessage.style.display = 'none';
+        successMessage.style.display = 'none';
+
+        // Jika sudah dikunci, periksa waktu kunci
+        if (lockTime > Date.now()) {
+            const remainingTime = Math.ceil((lockTime - Date.now()) / 1000);
+            errorMessage.innerText = `Terlalu banyak percobaan gagal. Coba lagi dalam ${remainingTime} detik.`;
+            errorMessage.style.display = 'block';
+            return;
+        }
+
+        // Validasi email dan password
+        if (email === validEmail && password === validPassword) {
+            successMessage.innerText = "Please wait a moment";
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = "2-Isi.html"; // Ganti dengan halaman selanjutnya
+            }, 5000); //waktu loading 1 detik = 1000
+        } else {
+            attempts++; // Menambah jumlah percobaan login
+            if (attempts >= maxAttempts) {
+                lockTime = Date.now() + 30000; // Mengunci selama 30 detik
+                errorMessage.innerText = `Terlalu banyak percobaan gagal. Coba lagi dalam 30 detik.`;
+            } else {
+                errorMessage.innerText = `Email atau password salah. Percobaan tersisa: ${maxAttempts - attempts}`;
+            }
+            errorMessage.style.display = 'block';
+        }
+    });
+</script>
+</main>
+</body>
+</html>

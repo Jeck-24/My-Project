@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagian Fitur Menarik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Latar belakang gelap */
+            color: #f4f4f4; /* Warna teks terang */
+        }
+
+        .features-section {
+            padding: 40px 20px;
+            background-color: #2b2b2b; /* Warna gelap untuk bagian fitur */
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .features-section h2 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #e2e2e2; /* Warna teks judul */
+            animation: fadeIn 1s ease-in;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .feature {
+            background: #3a3a3a; /* Warna latar belakang fitur */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s forwards; /* Animasi saat muncul */
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature:hover {
+            transform: scale(1.05); /* Efek zoom-in saat hover */
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2); /* Bayangan saat hover */
+        }
+
+        .feature i {
+            font-size: 40px;
+            color: #28a745; /* Warna ikon */
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin: 15px 0 10px;
+            font-size: 1.8em;
+            color: #fff; /* Warna teks judul fitur */
+        }
+
+        .feature p {
+            color: #ccc; /* Warna teks deskripsi */
+            line-height: 1.5;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="features-section">
+        <h2>Fitur Unggulan Kami</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analisis Mendalam</h3>
+                <p>Dapatkan wawasan yang berharga dengan analisis mendalam untuk meningkatkan kinerja Anda.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-cogs"></i>
+                <h3>Otomatisasi</h3>
+                <p>Automatisasi proses untuk efisiensi yang lebih tinggi dan penghematan waktu.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-shield"></i>
+                <h3>Keamanan Terjamin</h3>
+                <p>Keamanan data Anda adalah prioritas utama kami dengan sistem perlindungan yang kuat.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Desain Responsif</h3>
+                <p>Antarmuka yang sepenuhnya responsif, dapat diakses di semua perangkat.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h3>Kolaborasi Tim</h3>
+                <p>Fasilitasi kolaborasi tim yang lebih baik dengan alat yang dirancang untuk bekerja bersama.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-lock"></i>
+                <h3>Privasi dan Keamanan</h3>
+                <p>Data Anda terlindungi dengan enkripsi tingkat tinggi dan kebijakan privasi yang ketat.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-clock"></i>
+                <h3>Pemantauan Waktu Nyata</h3>
+                <p>Monitor kinerja secara waktu nyata untuk keputusan yang cepat dan tepat.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-comments"></i>
+                <h3>Dukungan Pelanggan 24/7</h3>
+                <p>Tim dukungan kami siap membantu Anda kapan saja, siang atau malam.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Untuk animasi fade-in judul
+        document.querySelector('.features-section h2').style.opacity = '1';
+    </script>
+</body>
+</html>

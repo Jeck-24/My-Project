@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e; /* Dark background */
+            color: #ffffff; /* Light text color */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .history-container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #2a2a2a; /* Slightly lighter dark background */
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            position: relative;
+        }
+
+        .history-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .history-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #e91e63; /* Accent color */
+        }
+
+        .history-header p {
+            font-size: 1.2rem;
+            color: #b0bec5; /* Light gray text */
+        }
+
+        .history-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 10px 20px;
+            margin-bottom: 40px;
+            border-left: 4px solid #e91e63; /* Left border for timeline effect */
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+            background-color: #3c3c3c; /* Darker background on hover */
+        }
+
+        .timeline-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: #e91e63; /* Accent color */
+        }
+
+        .timeline-item p {
+            font-size: 1rem;
+            color: #ffffff; /* Light text color */
+        }
+
+        .back-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-button button {
+            padding: 10px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #e91e63; /* Button color */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button button:hover {
+            background-color: #d81b60; /* Darker button on hover */
+        }
+
+        @media (max-width: 768px) {
+            .history-header h1 {
+                font-size: 2rem;
+            }
+
+            .timeline-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .timeline-item p {
+                font-size: 0.9rem;
+            }
+
+            .back-button button {
+                font-size: 0.9rem;
+                padding: 8px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="history-container">
+        <div class="history-header">
+            <h1>Company History</h1>
+            <p>Our journey through the years</p>
+        </div>
+
+        <div class="history-timeline">
+            <div class="timeline-item">
+                <h3>2012 - 2018</h3>
+                <p>I go to school at SDN 1 Pakunden Ponorogo which is located in East Java.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>2018 - 2021</h3>
+                <p>I study at MTs Daru Huda Ponorogo, precisely in East Java.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>2021 - 2023</h3>
+                <p>I study at MA Daru Huda Ponorogo, precisely in East Java.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2024</h3>
+                <p>I studied at the Muhammadiyah University of Ponorogo, precisely in East Java.</p>
+            </div>
+        </div>
+        
+        <div class="back-button">
+            <button onclick="goBack()">&#8592; Back to Previous Menu</button>
+        </div>
+
+    </div>
+    
+    <script>
+        // JavaScript function to go back to the previous page
+        function goBack() {
+            window.history.back(); // Uses the browser's history to go back
+        }
+    </script>
+</body>
+</html>

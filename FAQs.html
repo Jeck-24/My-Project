@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete FAQ Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            padding: 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #34495e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 2.5rem;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .faq-header p {
+            color: whitesmoke;
+            font-size: 1rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: black;
+            margin: 0;
+        }
+
+        .faq-item h3::after {
+            content: "+";
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active h3::after {
+            transform: rotate(45deg); /* Change "+" to "x" */
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 15px;
+            font-size: 1.1rem;
+            color: whitesmoke;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            margin: 0;
+        }
+
+        .toggle-all {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .toggle-all button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #e74c3c;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-all button:hover {
+            background-color: #c0392b;
+        }
+
+        @media (max-width: 768px) {
+            .faq-header h2 {
+                font-size: 2rem;
+            }
+
+            .faq-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .faq-answer {
+                font-size: 1rem;
+            }
+
+            .toggle-all button {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <div class="faq-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions below</p>
+        </div>
+
+        <div class="toggle-all">
+            <button onclick="toggleAllFaq()">Open All FAQs</button>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is a FAQ? <span></span></h3>
+            <div class="faq-answer">
+                <p>A FAQ is a list of frequently asked questions by users or customers, intended to provide direct answers to common queries.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How does the FAQ section work? <span></span></h3>
+            <div class="faq-answer">
+                <p>The FAQ section is designed to provide users with direct answers to common questions, so they don't have to search for information elsewhere.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What are the benefits of a FAQ? <span></span></h3>
+            <div class="faq-answer">
+                <p>A FAQ helps reduce the load on customer support and provides a better user experience, as users can quickly find answers to their questions.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is the FAQ updated regularly? <span></span></h3>
+            <div class="faq-answer">
+                <p>Yes, FAQs are generally updated based on the latest frequently asked questions by users or customers.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I contact customer support if the FAQ doesn't help? <span></span></h3>
+            <div class="faq-answer">
+                <p>If you don't find the answer in the FAQ, you can contact customer support through the contact form, email, or phone provided on the website.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script to toggle FAQ items
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Close all items before opening the clicked one
+                faqItems.forEach(faq => {
+                    if (faq !== item) {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-answer').style.display = 'none';
+                    }
+                });
+                
+                // Toggle the answer of the clicked item
+                item.classList.toggle('active');
+                const answer = item.querySelector('.faq-answer');
+                if (item.classList.contains('active')) {
+                    answer.style.display = 'block';
+                } else {
+                    answer.style.display = 'none';
+                }
+            });
+        });
+
+        // Function to toggle all FAQs
+        function toggleAllFaq() {
+            faqItems.forEach(item => {
+                item.classList.add('active');
+                const answer = item.querySelector('.faq-answer');
+                answer.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>

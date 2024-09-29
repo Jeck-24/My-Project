@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Web Page</title>
+    <style>
+        /* Reset default margin dan padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a2e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: #16213e;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            transition: all 0.4s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #f2a365;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #e94560;
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 15px 30px;
+            background-color: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        button:hover {
+            background-color: #f2a365;
+            box-shadow: 0 6px 20px rgba(242, 163, 101, 0.7);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+            color: #e94560;
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: #f2a365;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Efek animasi untuk teks */
+        .fadeIn {
+            animation: fadeInEffect 0.6s ease;
+        }
+
+        @keyframes fadeInEffect {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello!</h1>
+        <p id="description">Click the button to change this text!</p>
+        <button id="changeTextBtn">Change Text</button>
+    </div>
+
+    <footer>
+        <p>Designed by <a href="2-Isi.html">Mr.Jeck</a></p>
+    </footer>
+
+    <script>
+        // Menambahkan interaksi sederhana dengan efek fade
+        const description = document.getElementById('description');
+        const button = document.getElementById('changeTextBtn');
+        
+        button.addEventListener('click', function() {
+            if (description.textContent === "You clicked the button!") {
+                description.textContent = "Click the button to change this text!";
+                button.textContent = "Change Text";
+                description.classList.remove("fadeIn");
+            } else {
+                description.textContent = "You clicked the button!";
+                button.textContent = "Reset Text";
+                description.classList.add("fadeIn");
+            }
+        });
+    </script>
+</body>
+</html>
